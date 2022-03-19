@@ -1,0 +1,55 @@
+/* Reset default settings  */
+*,
+*::before,
+*::after {
+    /* changing how PADDING is calculated to make it within a width instead of adding to the total width of something */
+    box-sizing: border-box;  
+}
+
+/* Setting up some custom properties, update these for your own design */
+
+:root {
+    /* font family copied from Google fonts :) */
+    --ff-primary: "Source Sans Pro", sans-serif;
+    --ff-secondary: "Source Sans Pro", monospace;
+
+    /* font weights */
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    /* colors */
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+
+    /* font sizes - always in REMs - calculated based on MOCK-UP */
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+}
+
+/*  generic media query - works well for this design */
+@media (min-width: 800px) {
+    :root {
+        /* redefine font sizes - making bigger at large screen sizes - so we don't have to redefine in our actual CSS */
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
