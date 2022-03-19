@@ -71,6 +71,35 @@ h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
 
+/* Titles and Subtitles */
+/* Do MARGINS and PADDINGS on the text using EMs measurements - relative to font-size */
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+/* make text in strong to have its own line */
+.section__title--intro > strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+}
+
+
+
 
 
 
