@@ -27,6 +27,12 @@
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
+
+    /* box shadow */
+    /* up/down left/right blur rgba*/
+    --bs: .25em .25em .75em rgba(0,0,0,0.25),
+          /* another layer to help to increase the realism of the shadows */
+          .125em .125em .25em rgba(0,0,0,0.15);
 }
 
 /*  generic media query - works well for this design */
@@ -51,10 +57,15 @@ body {
     line-height: 1.6;
 }
 
+section {
+    /* keep things from touching the side of the screen */
+    padding: 5em 2em;
+}
+
 /* setting up images just so they don't grow bigger and overflow at the side of their parents */
 img {
     display: block;
-    max-width: 100%;
+    min-width: 100%;
 } 
 
 /* Basic Typography */
@@ -62,7 +73,7 @@ img {
 h1,
 h2,
 h3 {
-    line-height: 1.1;
+    line-height: 1;
     margin: 0;
 }
 
@@ -95,12 +106,65 @@ h3 { font-size: var(--fs-h3); }
 .section__subtitle--intro,
 .section__subtitle--about {
     background: var(--clr-accent);
+    padding: .25em 1em;
     font-family: var(--ff-secondary);
+    margin-bottom: 1em;
 }
 
+/* Header */
+/* hide navigation bar for Mobile */
+.nav { display: none; }
 
+/* Intro section */
 
+.intro {
+    position: relative;
+}
 
+/* giving a box shadow to img */
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+/* making the bar to be a size of itself above the picture */
+.section__subtitle--intro {
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        /* grid-template-columns: for img    for text; */
+        grid-template-columns: min-content max-content;
+    }
+    .intro__img {
+        grid-area: img;
+        min-width: 250px;
+        /* putting green bar behind the img */
+        position: relative;
+        z-index: 2;
+    }
+    .section__subtitle--intro {
+        /* Stops the green top bar to stretch out up and down */
+        align-self: start;
+        /* will stretch the green top bar to the right and left - all the way across */
+        grid-column: -1 / 1;
+        /* will get the green bar to the right of the picture */
+        grid-row: 2;
+        text-align: right;
+        /* will get the green bar across and behind the picture and a bit to the left */
+        position: relative;
+        left: -1.5em;
+        /* will get the green bar's width to match and stretch all the way to the right  */
+        width: calc(100% + 1.5em);
+    }
+}
 
 
 
