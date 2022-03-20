@@ -68,6 +68,37 @@ img {
     min-width: 100%;
 } 
 
+/* Everything when it has a focus state (hitting a TAB) is going to get an outline on it */
+/* will be applied to our button but it's also gonna apply to other things */
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    /* puts a pointer on the button */
+    cursor: pointer;
+    font-size: .8rem;
+    /* gives uppercase to the text in Button */
+    text-transform: uppercase;
+    /* helps to spread a letters inside a Button */
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    /* gets a button bigger when you hover over with .btn:hover */
+    transition: transform .2s ease-in-out;
+}
+/* gets a button bigger when you hover over with transition property in btn */
+.btn:hover {
+    transform: scale(1.1);
+}
+
 /* Basic Typography */
 
 h1,
@@ -167,5 +198,60 @@ h3 { font-size: var(--fs-h3); }
 }
 
 
+/* My Services section */
 
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(../img/services-bg.png);
+    background-size: cover;
+    /* make background a bit darker */
+    background-blend-mode: multiply;
+    color: var(--clr-light);
+    text-align: center;
+}
 
+.section__title--services {
+    color: var(--clr-accent);
+    /* because we have pseudo element we want to put on it to create a white line */
+    position: relative;
+}
+
+/* create a white line under 'What I do' */
+.section__title--services::after {
+    content: '';
+    display: block;
+    width: 2.5em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    /* gives the line the same color as 'What I do' text */
+    /* background-color: currentColor; */
+    /* or give a white color wit opacity */
+    background-color: var(--clr-light);
+    opacity: 0.25;
+}
+
+.services {
+    margin-bottom: 4em;
+}
+
+/* will stop things to move(stretch) too much - keeping a decent shape when it is too wide */
+.service {
+    max-width: 500px;
+    /* keep it centered  */
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .services {
+        display: flex;
+        /* will stop things to move(stretch) too much - keeping a decent shape when it is too wide */
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* will give a space between service blocks (Design + Development, E-Commerce, WorldPress) */
+    /* sibling + sibling of the first block (Design + Development) which is ignored by margin-left */
+    .service + .service {
+        margin-left: 2em;
+    }
+}
