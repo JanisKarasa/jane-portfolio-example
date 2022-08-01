@@ -65,8 +65,11 @@ section {
 /* setting up images just so they don't grow bigger and overflow at the side of their parents */
 img {
     display: block;
-    min-width: 100%;
+    max-width: 100%;
 } 
+
+/* Making strong tag even stronger/bolder (it doesn't work by some reason) */
+strong { font-weight: var(--fw-bold) }
 
 /* Everything when it has a focus state (hitting a TAB) is going to get an outline on it */
 /* will be applied to our button but it's also gonna apply to other things */
@@ -125,7 +128,7 @@ h3 { font-size: var(--fs-h3); }
 }
 
 /* make text in strong to have its own line */
-.section__title--intro > strong {
+.section__title--intro strong {
     display: block;
 }
 
@@ -162,6 +165,7 @@ h3 { font-size: var(--fs-h3); }
     display: inline-block;
 }
 
+/* Good practice for media queries is 300px and up, 600px and up, 900px and up - nice and generic */
 @media (min-width: 600px) {
     .intro {
         display: grid;
