@@ -46,6 +46,7 @@
     }
 }
 
+
 /* General styles */
 
 body {
@@ -107,6 +108,7 @@ but in this case we have only one button to style up */
     transform: scale(1.1);
 }
 
+
 /* Basic Typography */
 
 h1,
@@ -150,9 +152,16 @@ h3 { font-size: var(--fs-h3); }
     margin-bottom: 1em;
 }
 
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 1em;
+}
+
 /* Header */
 /* hide navigation bar for Mobile */
 .nav { display: none; }
+
 
 /* Intro section */
 
@@ -331,3 +340,58 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
         z-index: 2;
     }
 }
+
+
+/* Portfolio section */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.portfolio {
+    display: grid;
+    /* it is automatically make 3 columns */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* but if you want the grid aoutomatically change the columns depnding on screen size
+     but want to keep the certain size then use 'grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));'*/
+    /* each grid has minimum size of 300px but if it has room to get bigger in size, it will (1fr)
+    if the screen gets smaller it will automatically go down to 2 columns, 
+    at even smaller size it will automatically drop down to 2 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* ther is a chance you want to set a max-width with this, depends on you,
+    just to prevent it from being this one long string that goes all the way across,
+    it is achoice, if you set a max-width also just keep the margin of 0 auto to keep it cetered on the screen */
+}
+
+.portfolio__item {
+    background: var(--clr-accent);
+    /* when hover on top of the img the green color is gonna show through
+    and it's gonna grow and shrink and overflow will be hidden when transition the images with hover (bellow) */
+    overflow: hidden;
+}
+
+/* transition the images with hover */
+.portfolio__img {
+    transition: 
+        /* when hover on top of the img the green color is gonna show through
+        and it's gonna grow and shrink */
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+}
+
+/* to make green outline/green bar work properly */
+.portfolio__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+    /* when hover on top of the img or comes into a focus (TAB) the green color is gonna show through
+    and it's gonna grow and shrink */
+    transform: scale(1.2);
+    opacity: .75;
+}
+
