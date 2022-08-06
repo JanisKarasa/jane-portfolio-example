@@ -259,7 +259,8 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
     margin: 0 auto;
 }
 
-/* if we want to brake into multiple columns for bigger screens we use media queries */
+/* if we want to brake into multiple columns for bigger screens we use media queries
+AND 800px seem to work better as a breakpoint for when this would switch over than 900px */
 @media (min-width: 800px) {
     .services {
         display: flex;
@@ -288,35 +289,44 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
     box-shadow: var(--bs)
 }
 
+/* in this case we use 600px to break the text part and img into 2 columns for wider screen */
 @media (min-width: 600px) {
     .about-me {
         display: grid;
+        /* columns for main area (1fr) and img (200px) */
         grid-template-columns: 1fr 200px;
         grid-template-areas: 
             "title img"
             "subtitle img"
             "text img";
+        /* gap between text column and img */
         grid-column-gap: 2em;
     }
 
     .section__title--about {
+        /* connected with grid-template-areas: in .about-me grid setup */
         grid-area: title;
     }
 
     .section__subtitle--about {
         grid-column: 1 / -1;
+        /* make img go over the subtitle green stripe */
         grid-row: 2;
-        /* to make sure that text doesn't go under knees the image */
         position: relative;
         left: -1em;
-        width: calc(100% + 4em);
+        /* to make green stripe to stick out on both sides a little bit */
+        width: calc(100% + 2em);
+        /* giving a text in green stripe a padding of 2em */
         padding-left: 1em;
+        /* to make sure that text doesn't go under knees the image
+        and gives img a padding of 2em each side and it makes 4em together (from text padding point of view) */
         padding-right: calc(200px + 4em);
     }
 
     .about-me__img {
-        width: 247px;
+        /* connected with grid-template-areas: in .about-me grid setup */
         grid-area: img;
+        /* to put img on the top of the green stripe */
         position: relative;
         z-index: 2;
     }
