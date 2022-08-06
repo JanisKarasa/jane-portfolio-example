@@ -35,7 +35,7 @@
           .125em .125em .25em rgba(0,0,0,0.15);
 }
 
-/*  generic media query - works well for this design */
+/*  generic media query - works well for this design - making fonts bigger for bigger screens */
 @media (min-width: 800px) {
     :root {
         /* redefine font sizes - making bigger at large screen sizes - so we don't have to redefine in our actual CSS */
@@ -71,14 +71,18 @@ img {
 /* Making strong tag even stronger/bolder (it doesn't work by some reason) */
 strong { font-weight: var(--fw-bold) }
 
-/* Everything when it has a focus state (hitting a TAB) is going to get an outline on it */
-/* will be applied to our button but it's also gonna apply to other things */
+/* Everything when it has a FOCUS state (hitting a TAB) is going to get an outline on it */
+/* will be applied to our button but it's also gonna apply to other things like links 
+so you can see on which element is the FOCUS state (the TAB is on) */
 :focus {
     outline: 3px solid var(--clr-accent);
     outline-offset: 3px;
 }
 
+
 /* Buttons */
+/* Usually for buttons usually have designs that have more than one button
+but in this case we have only one button to style up */
 
 .btn {
     display: inline-block;
@@ -94,10 +98,11 @@ strong { font-weight: var(--fw-bold) }
     /* helps to spread a letters inside a Button */
     letter-spacing: 2px;
     font-weight: var(--fw-bold);
-    /* gets a button bigger when you hover over with .btn:hover */
+    /* gets a button bigger when you hover over with .btn:hover property bellow */
     transition: transform .2s ease-in-out;
 }
-/* gets a button bigger when you hover over with transition property in btn */
+
+/* gets a button bigger when you hover over with transition property in btn above */
 .btn:hover {
     transform: scale(1.1);
 }
@@ -155,7 +160,7 @@ h3 { font-size: var(--fs-h3); }
     position: relative;
 }
 
-/* giving a box shadow to img */
+/* giving a box shadow to intro img */
 .intro__img {
     box-shadow: var(--bs);
 }
@@ -196,7 +201,7 @@ h3 { font-size: var(--fs-h3); }
         /* will get the green bar across and behind the picture and a bit to the left */
         position: relative;
         left: -1.5em;
-        /* will get the green bar's width to match and stretch all the way to the right  */
+        /* will get the green bar's width to match and stretch all the way to the right */
         width: calc(100% + 1.5em);
     }
 }
@@ -205,23 +210,29 @@ h3 { font-size: var(--fs-h3); }
 /* My Services section */
 
 .my-services {
+    /* good to have a background color and then background image afterwards because
+    if the image ever fails for some reason you have a background color instead 
+    and still be able to read the white text */
     background-color: var(--clr-dark);
-    background-image: url(../img/services-bg.png);
+    background-image: url(../img/services-bg.jpg);
+    /* to make sure bg image doesn't repeats itself */
     background-size: cover;
     /* make background a bit darker */
-    background-blend-mode: multiply;
+    /* background-blend-mode: multiply; */
     color: var(--clr-light);
     text-align: center;
 }
 
 .section__title--services {
     color: var(--clr-accent);
-    /* because we have pseudo element we want to put on it to create a white line */
+    /* position: relative; is because we have pseudo element we want to put on it 
+    to create a white line under "What I Do" title */
     position: relative;
 }
 
-/* create a white line under 'What I do' */
+/* to create a white line under 'What I do' we use pseudo element - .section__title--services::after {} */
 .section__title--services::after {
+    /* you need to give a 'content' to pseudo element or they will not appear */
     content: '';
     display: block;
     width: 2.5em;
@@ -229,22 +240,26 @@ h3 { font-size: var(--fs-h3); }
     margin: 0.5em auto 1em;
     /* gives the line the same color as 'What I do' text */
     /* background-color: currentColor; */
-    /* or give a white color wit opacity */
+    /* or give a white color with opacity */
     background-color: var(--clr-light);
     opacity: 0.25;
 }
 
+/* the whall service section gets bottom margin BUT the margins disappearin for larger screens because we did margin: 0 auto;
+in media query but we fix that by going to media query for service section bellow and change it from margin: 0 auto; to 
+margin-left: auto; and margin-right: auto; just so it doesn't overwrite that margin-bottom: 4em; along the way */
 .services {
     margin-bottom: 4em;
 }
 
-/* will stop things to move(stretch) too much - keeping a decent shape when it is too wide */
+/* will stop things (in this case text) to move(stretch) too much - keeping a decent shape when it is too wide */
 .service {
     max-width: 500px;
     /* keep it centered  */
     margin: 0 auto;
 }
 
+/* if we want to brake into multiple columns for bigger screens we use media queries */
 @media (min-width: 800px) {
     .services {
         display: flex;
