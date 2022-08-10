@@ -160,7 +160,66 @@ h3 { font-size: var(--fs-h3); }
 
 /* Header */
 /* hide navigation bar for Mobile */
-.nav { display: none; }
+
+header {
+    /* display: flex; will not work with Chrome and NORMALIZE package (linked in index.html head section) */
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+/* setting up the nav bar */
+.nav {
+    /* to move button (of hamburger menu) to its right place */
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    /* putting hamburger menu all across the screen */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* to put it afront of everything else */
+    z-index: 100;
+    /* move it to the left half way (50% of itself)*/
+    /* transform: translateX(50%); */
+    /* but we leave it to 0% so later with JS we could manipulate with it - to make it to slide in and slide out */
+    transform: translateX(0%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+/* setting up the nav list */
+.nav__list {
+    /* taking out bullets from the list */
+    list-style: none;
+    display: flex;
+    /* so it actually has a height that we want it to */
+    height: 100%;
+    /* will space the evenly in vertical space */
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* will center items horizontally */
+    align-items: center;
+    /* fix weird issues with alignment */
+    margin: 0;
+    padding: 0;
+}
+
+/* gives a nav text a styling */
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
 
 
 /* Intro section */
