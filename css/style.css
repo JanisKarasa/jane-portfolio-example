@@ -187,8 +187,8 @@ header {
     z-index: 100;
     /* move it to the left half way (50% of itself)*/
     /* transform: translateX(50%); */
-    /* but we leave it to 0% so later with JS we could manipulate with it - to make it to slide in and slide out */
-    transform: translateX(0%);
+    /* but we leave it to 0% so we can style it now and later put 100% to hide it and then with JS we could manipulate with it - to make it to slide in and slide out */
+    transform: translateX(100%);
     transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
 
@@ -220,6 +220,65 @@ header {
 .nav__link:hover {
     color: var(--clr-accent);
 }
+
+
+/* HAMBURGER MENU */
+/* there are other ways to do it: hard way (opens up extra posibilities in terms what we could do with it - add animations and have fun with it
+because all the different peaces will be animatable and individual istead of being a single icon) and easy way */
+
+/* button itself */
+.nav-toggle {
+    padding: .5em;
+    /* to make it to disappear */
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    /* putting it in top right corner */
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    /* put it above everything - if the nav is open, i want to make sure my button actually stays afront of that */
+    z-index: 101;
+}
+
+/* give 3 stripes inside a button */
+.hamburger {
+    /* give it a display: block because by difault span is inline */
+    display: block;
+    /* give it a position: relative because we're gonna be using a pseudo elements with absolute positioning - it will make our lives much easier */
+    position: relative;
+}
+
+/* give 3 stripes inside a button */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    /* give some animation */
+    transition: transform 250ms ease-in-out;
+}
+
+/* give 3 stripes inside a button */
+.hamburger::before,
+.hamburger::after {
+    /* first think you want to do is give it a content as pseudo elements will not work unless you give them some content */
+    content: '';
+    /* you give them position or give them display property is required */
+    position: absolute;
+    /* that it means that it matches the width with the other one
+    and it's because i have position: relative in .hamburger. if not then it will be relative to whole screen 
+    and huge bar going all the way across */
+    left: 0;
+    right: 0;
+}
+
+/* give 3 stripes inside a button */
+/* the reason it is 6px is because we have height of 3 px, empty space of 3px and then we'll have the rest of hamburger */
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
 
 
 /* Intro section */
