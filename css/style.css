@@ -49,6 +49,11 @@
 
 /* General styles */
 
+/* easy way to add a scrolling effect without JS */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -241,6 +246,52 @@ because all the different peaces will be animatable and individual istead of bei
     z-index: 101;
 }
 
+/* testing our function ...
+navToggle.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+});
+by adding .nav-open {background: red;} that what means the line 'document.body.classList.toggle('nav-open'); and if we click on that button the color of body will be red'
+*/
+/* .nav-open {background: red;} */
+
+
+/* ADDING JAVA SCRIPT */
+/* connected to index.js */
+.nav-open .nav {
+    /* when nav is open then nav itself (.nav) going to get ... */
+    transform: translateX(0);
+    /* what that means is when we click that it slides out, when we click again it slides back in */
+}
+
+.nav-open .nav-toggle {
+    /* when nav is open then nav-toggle itself (.nav-toggle) going to get ... */
+    position: fixed;
+    /* the reason for that (position: fixed;) is having it switched is because we don't want it always to be position: fixed;
+    cause we don't want it to scroll with the site */
+}
+
+/* ROTATE toggle stripes inside so it turns into an X 
+with .nav-open .hamburger::before {...} and .nav-open .hamburger::after {...} and .nav-open .hamburger {...} */
+.nav-open .hamburger {
+    /* when nav is open then hamburger itself (.hamburger) going to get ... */
+    transform: rotate(.625turn);
+    /* and it will rotate it around, you can do it in degrees but I want to show that you can do it in turn units */
+}
+
+.nav-open .hamburger::before {
+    /* when nav is open then (.hamburger::before) going to get ... */
+    /* rotated by 90 degree and adjusted/moved back (translateX) by 6px as it was off and ugly by 6px */
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    /* when nav is open then (.hamburger::after) going to get ... */
+    opacity: 0;
+    /* so it's going to disappear and rest would rotate and turn into an X */
+}
+
+
+
 /* give 3 stripes inside a button */
 .hamburger {
     /* give it a display: block because by difault span is inline */
@@ -253,7 +304,7 @@ because all the different peaces will be animatable and individual istead of bei
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 2em;
     height: 3px;
     border-radius: 1em;
