@@ -618,3 +618,19 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
     padding: .5em;
 }
 
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* to make picture looking wider */
+.portfolio-item-individual p {
+    max-width: 600px;
+    /* because we wnat to keep top and bottom default margins that already are on the paragraphs */
+    margin-left: auto;
+    margin-right: auto;
+}

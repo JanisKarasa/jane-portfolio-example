@@ -1,0 +1,97 @@
+<!-- you can populate as many portfolio item pages as you need for your different portfolio items-->
+
+<!-- we create the file portfolio-item.html and copy all from index.html 
+    deleted everything between 'introduction' and 'footer' section -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Normalizes helps even out all the differences between different web-browsers 
+    trying to make them to behave the same way -->
+    <!-- <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    
+    <!-- Update these with your own fonts -->
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans
+    +Pro:300,900&display=swap">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/devjane.png" alt="">
+        </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="nav">
+            <ul class="nav__list">
+                <!-- setting up the links to work properly from this page portfolio-item.html -->
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="index.html#services" class="nav__link">My Services</a></li>
+                <li class="nav__item"><a href="index.html#about" class="nav__link">About me</a></li>
+                <li class="nav__item"><a href="index.html#work" class="nav__link">My Work</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <h2 class="section__title section__title--intro">
+            The title <strong>of my project</strong>
+        </h2>
+        <p class="section__subtitle section__subtitle--intro">A short subtitle</p>
+        <img src="img/portfolio-01.jpg" alt="" class="intro__img">
+    </section>
+
+    <div class="portfolio-item-individual">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum fugiat, ducimus facilis porro minima cumque quam laborum ex nesciunt, provident quos. Repellat quos cum eius quidem totam facilis, itaque tenetur?</p>
+        <img src="img/portfolio-details.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sunt, quaerat quam earum similique voluptatem ipsam in corrupti ipsa, temporibus eius labore ipsum! Rem nobis consectetur reiciendis velit laudantium minus?
+        Illo quaerat nam quas ullam ratione facere eligendi aliquid, consequuntur magnam voluptatibus qui exercitationem pariatur iste et neque, ipsam natus suscipit possimus veniam amet quia aut non. Facere, delectus dolores?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptas vitae corporis facere eum veniam doloremque aspernatur? Deserunt eveniet totam illo ducimus corporis dolor accusamus earum nam, veniam distinctio reiciendis.
+        Accusantium ea repudiandae, explicabo excepturi officiis minus itaque fugiat? Error sed voluptate temporibus possimus esse quidem sint. Non ducimus quas, quasi, laborum omnis, adipisci fugiat necessitatibus eius ut voluptatibus laudantium?</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- replace with yur own email address -->
+        <a href="mailto:hello@jane.dev" class="footer__link">hello@jane.dev</a>
+        <ul class="social-list">
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://codepen.io">
+                    <i class="fab fa-codepen"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://dribbble.com">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://twitter.com">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- adding a link to JS -->
+    <script src="js/index.js"></script>
+
+</body>
+</html>
