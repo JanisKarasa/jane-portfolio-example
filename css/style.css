@@ -10,17 +10,28 @@
 
 :root {
     /* font family copied from Google fonts :) */
-    --ff-primary: "Source Sans Pro", sans-serif;
-    --ff-secondary: "Source Sans Pro", monospace;
+    /* --ff-primary: "Source Sans Pro", sans-serif; */
+    /* --ff-secondary: "Source Sans Pro", monospace; */
+    /* Updating font families after updating font links in HTML (comment out old font families above) */
+    --ff-primary: "Lora", serif;
+    --ff-secondary: "Roboto Slab", serif;
 
     /* font weights */
-    --fw-reg: 300;
-    --fw-bold: 900;
+    /* --fw-reg: 300; */
+    /* --fw-bold: 900; */
+    /* Updating font weights after updating font links in HTML (comment out old font families above) */
+    --fw-reg: 400;
+    --fw-bold: 700;
 
     /* colors */
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    /* Or you could invert your color scheme from light-dark to dark-light */
+    /* --clr-light: #333; */
+    /* --clr-dark: #fff; */
+    /* --clr-accent: #16e0bd; */
+    /* Updating a color accent if you don't like that green color */
+    --clr-accent: #f8333c;
 
     /* font sizes - always in REMs - calculated based on MOCK-UP */
     --fs-h1: 3rem;
