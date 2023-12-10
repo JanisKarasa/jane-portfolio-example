@@ -54,6 +54,10 @@
         --fs-h2: 3.75rem;
         --fs-h3: 1.5rem;
         --fs-body: 1.125rem;
+        /* switching colors on desktop */
+        --clr-light: #333;
+        --clr-dark: #fff;
+        --clr-accent: #16e0bd;
     }
 }
 
